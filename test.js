@@ -1,4 +1,4 @@
-const test = require('./webMetaScraper.js');
+const test = require('./src/webMetaScraper.js');
 
 const result = test({
   url: "https://www.github.com/", mKeys: [
