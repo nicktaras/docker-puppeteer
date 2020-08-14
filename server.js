@@ -1,15 +1,22 @@
 'use strict';
 
 const express = require('express');
+const webMetaScraper = require('./src/webMetaScraper.js');
+const metaKeys = require('./metaKeys.json');
 
-// Constants
 const PORT = 8080;
 const HOST = '0.0.0.0';
 
-// App
 const app = express();
-app.get('/', (req, res) => {
-  res.send('Hello World');
+
+app.get('/api/v1/', async (req, res, next) => {
+  const url = req.query.url;
+  try {
+    const result = await webMetaScraper({ url: url, metaKeys });
+    res.json(result)
+  } catch (error) {
+    return next(error)
+  }
 });
 
 app.listen(PORT, HOST);
