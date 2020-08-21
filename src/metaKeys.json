@@ -7,6 +7,7 @@
   "Classification",
   "topic",
   "summary",
+  "summary",
   "og:title",
   "og:type",
   "og:url",
@@ -24,7 +25,8 @@
   "twitter:creator",
   "twitter:image",
   "theme-color",
-  "msapplication-TileColor",
+  "msapplication-tilecolor",
+  "msapplication-tileimage",
   "apple-itunes-app",
   "apple-mobile-web-app-title"
 ]

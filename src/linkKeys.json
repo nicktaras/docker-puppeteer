@@ -1,0 +1,62 @@
+{
+  "map": [
+    "fluid-icon",
+    "apple-touch-icon",
+    "apple-touch-icon-precomposed",
+    "shortcut icon",
+    "icon",
+    "apple",
+    "mask-icon"
+  ],
+  "keys": [
+    {
+      "rel": "fluid-icon",
+      "keys": [
+        "href",
+        "title"
+      ]
+    },
+    {
+      "rel": "apple-touch-icon",
+      "keys": [
+        "href",
+        "sizes"
+      ]
+    },
+    {
+      "rel": "apple-touch-icon-precomposed",
+      "keys": [
+        "href",
+        "sizes"
+      ]
+    },
+    {
+      "rel": "shortcut icon",
+      "keys": [
+        "href",
+        "sizes"
+      ]
+    },
+    {
+      "rel": "icon",
+      "keys": [
+        "href",
+        "sizes"
+      ]
+    },
+    {
+      "rel": "apple",
+      "keys": [
+        "href",
+        "sizes"
+      ]
+    },
+    {
+      "rel": "mask-icon",
+      "keys": [
+        "href",
+        "color"
+      ]
+    }
+  ]
+}

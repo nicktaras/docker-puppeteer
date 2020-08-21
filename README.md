@@ -1,6 +1,12 @@
 # docker-puppeteer
 Puppeteer running within a docker container
 
+## TODO:
+
+- Add logic to add the correct path to the URLS
+- Return a simplified output e.g. title, desc, icon, articleImg.
+- Add tests
+
 ## Docket commands
 
 ### Build image
