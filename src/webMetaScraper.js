@@ -3,17 +3,6 @@ const metaKeys = require('./metaKeys.json');
 const linkKeys = require('./linkKeys.json');
 const scraperUtils = require('./scraperUtils.js');
 
-// Questions to answer:
-// 1. Should we provide a custom interface YES e.g.
-// { 
-//    icon: Most suitable icon,
-//    title: Most suitable tite, 
-//    description: Most suitable description... 
-// }
-// 2. Should we use a DB to cache all requests YES
-//    Or use a CDN Cache Layer etc / TTL.
-//    - Security issues could arise e.g. people changing icon to zip.
-
 const run = ({ url }) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -23,8 +12,11 @@ const run = ({ url }) => {
       let urls = await page.evaluate(({ metaKeys, linkKeys, scraperUtils }) => {
         let output = {
           meta: {},
-          link: {}
+          link: {},
+          output: {}
         };
+        // Title
+        output.meta.title = document.querySelectorAll('title')[0];
         // META Collection
         let meta = document.querySelectorAll('meta');
         meta.forEach((item) => {
@@ -60,6 +52,11 @@ const run = ({ url }) => {
   })
 }
 
+// Entry Point
+// Recieves URL
+// Attempts to webscrape with Puppetter
+// With result, cleans up found URLs to located images
+// returns output or error
 module.exports = async ({ url }) => {
   const urlObject = new URL(url);
   const host = urlObject.host;
@@ -75,6 +72,24 @@ module.exports = async ({ url }) => {
           host: host,
           reqProtocol: reqProtocol
         })
+        output.output['icon'] = output.link[key].href;
+      }
+    }
+    for (var key in output.meta) {
+      if (key.indexOf('description') > -1) {
+        output.output['description'] = output.meta[key]
+      }
+      if (key.indexOf('title') > -1) {
+        output.output['title'] = output.meta[key]
+      }
+      if (key.indexOf('subject') > -1) {
+        output.output['subject'] = output.meta[key]
+      }
+      if (key.indexOf('keywords') > -1) {
+        output.output['keywords'] = output.meta[key]
+      }
+      if (key.indexOf('image') > -1) {
+        output.output['image'] = output.meta[key]
       }
     }
     return output;

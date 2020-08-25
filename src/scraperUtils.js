@@ -18,7 +18,6 @@ const scraperUtils = {
     return url;
   },
   getCleanLink({ link, host, reqProtocol }) {
-    console.log('inputs:', link, host, reqProtocol);
     if (!link) console.warn('getCleanLink: link was missing');
     const indexOfHttp = link.indexOf('http');
     const indexOfWww = link.indexOf('www');

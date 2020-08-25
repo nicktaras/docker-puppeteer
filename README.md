@@ -7,6 +7,16 @@ Puppeteer running within a docker container
 - Return a simplified output e.g. title, desc, icon, articleImg.
 - Add tests
 
+## Redis:
+
+https://gist.github.com/tomysmile/1b8a321e7c58499ef9f9441b2faa0aa8
+
+### start
+brew services start redis
+
+### stop
+brew services stop redis
+
 ## Docket commands
 
 ### Build image

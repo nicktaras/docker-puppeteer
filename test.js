@@ -32,7 +32,8 @@ const scraperUtils = require('./src/scraperUtils');
 // /media/3982/mos-favicon.png?width=180&height=180
 // Difficult ./gfx/meta/favicon.ico?1615 (https://swedishhousemafia.com/)
 
-const url = "https://swedishhousemafia.com/";
+// const result = await webMetaScraper({ url: req.query.url });
+const url = "https://reactjs.org/";
 webMetaScraper({ url }).then((result) => {
   console.log(result);
 })
