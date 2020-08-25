@@ -9,7 +9,13 @@ const run = ({ url }) => {
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
       await page.goto(url);
-      let urls = await page.evaluate(({ metaKeys, linkKeys, scraperUtils }) => {
+      // TODO - not too much concern at this time.
+      // Re-Directs occur, where we don't know the destination page.
+      // This causes one known issue, where we can't create a default
+      // favicon icon e.g. knownHost + '/favicon.ico'
+      // Solution can be found here:
+      // https://blog.kowalczyk.info/article/ea07db1b9bff415ab180b0525f3898f6/advanced-web-spidering-with-puppeteer.html
+      let urls = await page.evaluate(({ metaKeys, linkKeys }) => {
         let output = {
           meta: {},
           link: {},
@@ -65,6 +71,9 @@ module.exports = async ({ url }) => {
     const result = await run({ url });
     var output = result;
     const reqProtocol = (protocol.indexOf('https') <= -1) ? 'http' : 'https';
+    // Set Default Icon
+    // output.link['icon'] = reqProtocol + '://' + host + '/' + 'favicon.ico';
+    // output.output['icon'] = reqProtocol + '://' + host + '/' + 'favicon.ico';
     for (var key in output.link) {
       if (output.link[key].href) {
         output.link[key].href = scraperUtils.getCleanLink({
