@@ -19,7 +19,7 @@ app.use(cors());
 // Store within Redix and Server File System
 const setStorage = (key, value) => {
   redisClient.set(key, JSON.stringify(value));
-  fs.appendFile('search-history.txt', JSON.stringify(result), function (err) { });
+  fs.appendFile('search-history.csv', `${key}, ${JSON.stringify(value)},`, function (err) { });
 }
 
 // 
@@ -40,8 +40,8 @@ app.get('/', async (req, res) => {
   res.json({ healthCheck: 'passed' })
 });
 
-// Entry point to API
-app.get('/api/v1/', getStorage, async (req, res, next) => {
+// Entry point to APIgetStorage
+app.get('/api/v1/', async (req, res, next) => {
   try {
     const result = await webMetaScraper({ url: req.query.url });
     setStorage(req.route.path + req.query.url, result);

@@ -1,11 +1,36 @@
-# docker-puppeteer
+# docker-puppeteer / Cloudlinks Software
 Puppeteer running within a docker container
+
+# Permission / Use
+
+This software is owned by the author Nicholas Alexander Taras. It may not be used without direct persmission for commercial or personal projects.
+
+# Usage and Instructions
+
+This micro service is designed to scrape and store data to Redis / flat file system.
+
+### Local Dev
+
+0. Install and run `brew services start redis` to start up redis. Providing the cache mechanism. 
+
+1. run `node server` to test the application via a web browser or Postman. Providing a Url
+
+e.g. `localhost:8080//api/v1/?url=https://facebook.com`
+
+2. run `yarn test` to test the application
+
+### Docker Dev
+
+See Docker steps below. This is still a working progress item. However you should be able to
+start docker and access the micro service as required. 
 
 ## TODO:
 
-- Add logic to add the correct path to the URLS
-- Return a simplified output e.g. title, desc, icon, articleImg.
-- Add tests
+- Add logic to add the correct path to the URLS (some tidying needed in this area)
+- Add tests (check expected outcomes rather than specific meta text)
+- Tidy and simplify the code
+- Apply Re-Direct Logic to make the service more robust (!!!AFTER MVP!!!)
+- Host the Micro Service ensuring it is secure and can only be used by CloudLinks
 
 ## Redis:
 

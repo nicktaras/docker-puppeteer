@@ -31,14 +31,29 @@ const linkTestData = [
 // /media/3982/mos-favicon.png?width=180&height=180
 // Difficult ./gfx/meta/favicon.ico?1615 (https://swedishhousemafia.com/)
 
-jest.setTimeout(30000);
+// jest.setTimeout(6000);
 
-test('Ensure Meta Contains Icons', async () => {
-  for (var i = 0; i < linkTestData.length; i++) {
-    const result = await webMetaScraper({ url: linkTestData[i].url });
-    console.log(linkTestData[i].url, result);
-    expect((result.output.icon) ? true : false).toBe(true);
-  }
+// test('Ensure Meta Contains Icons', async () => {
+//   for (var i = 0; i < linkTestData.length; i++) {
+//     const result = await webMetaScraper({ url: linkTestData[i].url });
+//     console.log(linkTestData[i].url, result);
+//     expect((result.output.icon) ? true : false).toBe(true);
+//   }
+// });
+
+// test('expect https://reactjs.org/ to return meta icon', async () => {
+//   const result = await webMetaScraper({ url: "https://reactjs.org/" });
+//   console.log('nick', result)
+//   expect((result.output.icon) ? true : false).toBe(true);
+// });
+// test('expect https://www.sony.com.au/ to return meta icon', async () => {
+//   const result = await webMetaScraper({ url: "https://www.sony.com.au/" });
+//   expect((result.output.icon) ? true : false).toBe(true);
+// });
+test('expect https://www.bbc.co.uk/ to return meta icon', async () => {
+  const result = await webMetaScraper({ url: "https://www.bbc.co.uk/" });
+  console.log('nick', result)
+  expect((result.output.icon) ? true : false).toBe(true);
 });
 
 
