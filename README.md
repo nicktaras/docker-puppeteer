@@ -1,9 +1,6 @@
-# docker-puppeteer / Cloudlinks Software
+# docker-puppeteer
+
 Puppeteer running within a docker container
-
-# Permission / Use
-
-This software is owned by the author Nicholas Alexander Taras. It may not be used without direct persmission for commercial or personal projects.
 
 # Usage and Instructions
 
@@ -37,9 +34,11 @@ start docker and access the micro service as required.
 https://gist.github.com/tomysmile/1b8a321e7c58499ef9f9441b2faa0aa8
 
 ### start
+
 brew services start redis
 
 ### stop
+
 brew services stop redis
 
 ## Docket commands
